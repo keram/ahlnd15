@@ -13,7 +13,82 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
-//= require turbolinks
-//= require_tree .
+// require turbolinks
+// require_tree .
 
-$(function(){ $(document).foundation(); });
+function onAutodeskError(error) {
+    console.log('Autodesk: ', error);
+}
+
+function createSpinner(holder) {
+    $('<p/>', {
+        id: 'spinner',
+        text: 'Loading 3D model..'
+    }).appendTo(holder);
+}
+
+function createModelWrapper(holder) {
+    $('<div/>', {
+        'class': 'model-wrapper'
+    }).appendTo(holder).hide();
+}
+
+
+
+function onSucessModelLoad() {
+    console.log('onSucessModelLoad');
+    $('#spinner').hide();
+    $('.model-wrapper').show();
+}
+
+function onErrorModelLoad() {
+    console.log('onErrorModelLoad');
+    $('#spinner').hide();
+    $('#spinner').parent().html('Error occured, you can blame Autodesk :)');
+}
+
+function loadModel(holder, urn) {
+    var tokenurl = 'http://' + window.location.host + '/api/v1/token',
+        config = {
+            environment : 'AutodeskProduction',
+            //environment : 'AutodeskStaging'
+        },
+
+        viewerFactory;
+
+    createSpinner(holder);
+
+    // Instantiate viewer factory
+    viewerFactory = new Autodesk.ADN.Toolkit.Viewer.AdnViewerFactory(
+        tokenurl,
+        config);
+
+    viewerFactory.getViewablePath(urn,
+        function(pathInfoCollection) {
+            var viewer,
+                viewerConfig = {
+                    viewerType: 'GuiViewer3D',
+                    version: '1.2.15'
+                };
+
+            holder.empty();
+
+            viewer = viewerFactory.createViewer(
+                holder.get(0),
+                viewerConfig);
+
+            viewer.load(
+                pathInfoCollection.path3d[0].path);
+        },
+        onAutodeskError);
+}
+
+$(function(){
+    $(document).foundation();
+
+    $('[data-model-urn]').each(function () {
+        var holder = $(this);
+
+        loadModel(holder, holder.data('model-urn'));
+    });
+});

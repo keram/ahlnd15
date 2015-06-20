@@ -13,15 +13,15 @@
 
   <div class="field">
     <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, required: true, value: 'My Home' %>
   </div>
   <div class="field">
     <%= f.label :file %><br>
     <!-- <%= f.text_area :file %> -->
     <input type="file" />
-    <%= f.hidden_field :file, value: '' %>
+    <%= f.hidden_field :file, value: 'Sample3D.dwg' %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: 'button' %>
   </div>
 <% end %>

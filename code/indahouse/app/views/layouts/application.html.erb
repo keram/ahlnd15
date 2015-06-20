@@ -8,13 +8,27 @@
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
-    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+
+
+    <%= javascript_include_tag "application" %>
+
+   <!-- <script src="https://developer.api.autodesk.com/viewingservice/v1/viewers/viewer3D.min.js"></script> -->
+    <script src="https://developer.api.autodesk.com/viewingservice/v1/viewers/viewer3D.min.js?v=v1.2.16"></script>
+
+    <!-- Autodesk.ADN.Toolkit.Viewer -->
+    <script src="https://rawgit.com/Developer-Autodesk/library-javascript-view.and.data.api/master/js/Autodesk.ADN.Toolkit.Viewer.js"></script>
+
+<link rel="stylesheet" href="https://developer.api.autodesk.com/viewingservice/v1/viewers/style.css" type="text/css">
+
     <%= csrf_meta_tags %>
   </head>
-
   <body>
-
-    <%= yield %>
+    <%= render 'top_navigation' %>
+    <div class="row">
+      <div class="columns">
+        <%= yield %>
+      </div>
+    </div>
 
   </body>
 </html>
