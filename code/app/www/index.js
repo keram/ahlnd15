@@ -15,13 +15,15 @@
 // DOES NOT WARRANT THAT THE OPERATION OF THE PROGRAM WILL BE
 // UNINTERRUPTED OR ERROR FREE.
 /////////////////////////////////////////////////////////////////////////////////
-var defaultUrn = 'dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6bW9kZWwyMDE1LTA2LTE5LTIwLTAzLTQxLW9haG52ZHBsc3RzcDZsZ2NnbWtuMGxyZXV3amgvQ2hhaXIuZHdn';
+var defaultUrn = 'dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6aW5kYWhvdXNlL1NhbXBlSG91c2UzRC5kd2c';
 
 $(document).ready(function () {
     var tokenurl = 'http://' + window.location.host + '/api/token';
     var config = {
-        environment : 'AutodeskProduction'
+        environment : 'AutodeskProduction',
+        version: '1.2.15'
 		//environment : 'AutodeskStaging'
+        //
     };
 
     // Instantiate viewer factory
@@ -45,7 +47,7 @@ $(document).ready(function () {
 
             viewer.load(pathInfoCollection.path3d[0].path);
         },
-        onError);
+        console.log);
 
 });
 
