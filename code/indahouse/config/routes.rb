@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :sensor_event_actions
+  resources :sensor_events
+  resources :sensors
+  resources :models
   resources :models
 
   # The priority is based upon order of creation: first created -> highest priority.

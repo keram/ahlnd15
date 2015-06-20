@@ -1,13 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  model_id: 
   model_sensor_id: 
   sensor_event_id: 
   sensor_event_action_id: 
-  action_details: MyText
+  action_detail: MyText
 
 two:
+  model_id: 
   model_sensor_id: 
   sensor_event_id: 
   sensor_event_action_id: 
-  action_details: MyText
+  action_detail: MyText

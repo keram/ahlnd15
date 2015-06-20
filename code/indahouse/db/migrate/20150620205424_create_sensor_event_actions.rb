@@ -3,6 +3,7 @@ class CreateSensorEventActions < ActiveRecord::Migration
     create_table :sensor_event_actions do |t|
       t.string :name
       t.text :description
+      t.text :details
 
       t.timestamps null: false
     end

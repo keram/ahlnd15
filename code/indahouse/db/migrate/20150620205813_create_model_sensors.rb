@@ -3,12 +3,10 @@ class CreateModelSensors < ActiveRecord::Migration
     create_table :model_sensors do |t|
       t.references :model, index: true, foreign_key: true
       t.references :sensor, index: true, foreign_key: true
-
-      t.decimal :latitude, null: false
-      t.decimal :longitude, null: false
-      t.decimal :sec, null: false
-
-      t.string :sensor_state, null: false, default: :active
+      t.decimal :latitude
+      t.decimal :longitude
+      t.decimal :sec
+      t.string :sensor_state
 
       t.timestamps null: false
     end
