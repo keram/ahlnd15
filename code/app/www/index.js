@@ -40,7 +40,7 @@ $(document).ready(function () {
             };
 
             var viewer = viewerFactory.createViewer(
-                $('#viewerDiv')[0],
+                document.getElementById('viewer-container'),
                 viewerConfig);
 
             viewer.load(pathInfoCollection.path3d[0].path);
@@ -49,9 +49,11 @@ $(document).ready(function () {
 
 });
 
-function onError(error) {
-    console.log('Error: ' + error);
-};
+
+
+// function onError(error) {
+//     console.log('Error: ' + error);
+// };
 
 // The following code does not rely on Autodesk.ADN.Toolkit.Viewer.AdnViewerManager
 // and uses the Autodesk API directly.

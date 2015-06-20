@@ -20,8 +20,8 @@ var credentials = {
 	credentials: {
 		// Replace placeholder below by the Consumer Key and Consumer Secret you got from
 		// http://developer.autodesk.com/ for the production server
-		client_id: process.env.CONSUMERKEY || 'dKLg54yXnHJLKxaxfBaAVHZFOhrY3AAO',
-		client_secret: process.env.CONSUMERSECRET || '55hVMcGTaoUO0gAV',
+		client_id: process.env.CONSUMERKEY || 'HanexjfJMGC9GnveB5NNqbjzF3bvQlAH',
+		client_secret: process.env.CONSUMERSECRET || 'FwZNYEmc5yimooSb',
 		grant_type: 'client_credentials'
 	},
 
@@ -32,4 +32,4 @@ var credentials = {
 
 credentials.Authentication = credentials.BaseUrl + '/authentication/' + credentials.Version + '/authenticate'
 
-module.exports =credentials ;
+module.exports = credentials ;
